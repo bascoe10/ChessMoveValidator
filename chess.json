@@ -1,0 +1,19 @@
+{
+  "white": [
+    "Rf1",
+    "Kg1",
+    "Pf2",
+    "Ph2",
+    "Pg3",
+    "Bf5"
+  ],
+  "black": [
+    "Ke2",
+    "Qe5",
+    "Pa7",
+    "Pb7",
+    "Pc7",
+    "Ra5"
+  ],
+  "piece_to_move": "Ke2"
+}
