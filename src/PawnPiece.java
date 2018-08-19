@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 
 public class PawnPiece extends Piece {
 
@@ -9,13 +8,22 @@ public class PawnPiece extends Piece {
 	}
 
 	@Override
-	public ArrayList<Location> valid_moves() {
+	public LocationList valid_moves(Board board) {
 		// TODO account handle special move
-		ArrayList<Location> moves = new ArrayList<Location>();
-		if(color == Color.WHITE)
-			moves.add(new Location(this.location.file, this.location.rank-1));
-		else
-			moves.add(new Location(this.location.file, this.location.rank+1));
+		LocationList moves = new LocationList();
+		
+		Location temp_location = null;
+		if(color == Color.WHITE){
+			temp_location = new Location(this.location.file, this.location.rank-1);
+			if(board.is_vacant_at(temp_location))
+				moves.add(temp_location);
+		} else {
+			temp_location = new Location(this.location.file, this.location.rank+1);
+			if(board.is_vacant_at(temp_location))
+				moves.add(temp_location);
+		}
+			
+		// TODO account for capture move
 		return moves;
 	}
 	

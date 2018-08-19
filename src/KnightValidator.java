@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class KnightValidator extends Validator {
 
@@ -8,13 +8,8 @@ public class KnightValidator extends Validator {
 	}
 	
 	@Override
-	public ArrayList<Location> validate() {
-		ArrayList<Location> valid_moves = new ArrayList<Location>();
-		for(Location location: piece.valid_moves()){
-			if(board.is_vacant_at(location) || board.can_capture(piece, location))
-				valid_moves.add(location);
-		}
-		return valid_moves;
+	public LocationList validate() {
+		return piece.valid_moves(board);
 	}
 
 }

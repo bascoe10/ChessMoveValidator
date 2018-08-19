@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+
 
 public class MoveValidator {
 	private Board board;
 	private Piece piece;
 	private Validator validator;
-	private ArrayList<Location> moves;
+	private LocationList moves;
 	
 	public MoveValidator(Board board, Piece piece){
 		this.board = board;
@@ -12,21 +12,16 @@ public class MoveValidator {
 		validator = chooseValidator();
 	}
 	
-	public ArrayList<Location> validate(){
+	public LocationList validate(){
 		moves = validator.validate();
 		return moves;
 	}
 	
-	public LocationList moves_that_can_lead_to_check(){
+	public LocationList moves_that_cannot_lead_to_check(){
 		LocationList valid_moves = new LocationList();
-		Board new_board = null;
-		
+
 		for(Location location: validator.validate()){
-			new_board = board.clone();
-			new_board.move_piece(piece, location);
-			System.out.println("-------------------------------");
-			new_board.display();
-			if(!(board.can_piece_move_lead_to_check(piece)))
+			if(!(board.will_lead_to_check(piece, location)))
 				valid_moves.add(location);
 		}
 		return valid_moves;

@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 
 public class BishopPiece extends Piece {
 
@@ -9,54 +8,87 @@ public class BishopPiece extends Piece {
 	}
 
 	@Override
-	public ArrayList<Location> valid_moves(Board board) {
-		ArrayList<Location> moves = new ArrayList<Location>();
-		File file = location.file.getNext();
-		int temp_rank = location.rank;
+	public LocationList valid_moves(Board board) {
+		LocationList moves = new LocationList();
+		
 		// to top right
+		File file = location.file.getNext();
+		int temp_rank = location.rank + 1;
+		Location temp_location = null;
 		while (file != null) {
-			temp_rank += 1;
-			if (temp_rank > 0 && temp_rank < 9)
-				moves.add(new Location(file, temp_rank));
-			else
-				break;
+			temp_location = new Location(file, temp_rank);
+			if (temp_rank > 0 && temp_rank < 9){
+				if(board.is_vacant_at(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.can_capture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
 			file = file.getNext();
+			temp_rank += 1;
 		}
-
 		// to bottom left
 		file = location.file.getPrev();
-		temp_rank = location.rank;
+		temp_rank = location.rank - 1;
 		while (file != null) {
-			temp_rank -= 1;
-			if (temp_rank > 0 && temp_rank < 9)
-				moves.add(new Location(file, temp_rank));
-			else
-				break;
+			temp_location = new Location(file, temp_rank);
+			if (temp_rank > 0 && temp_rank < 9){
+				if(board.is_vacant_at(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.can_capture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
 			file = file.getPrev();
+			temp_rank -= 1;
 		}
 
 		file = location.file.getNext();
-		temp_rank = location.rank;
+		temp_rank = location.rank - 1;
 		// to bottom right
 		while (file != null) {
-			temp_rank -= 1;
-			if (temp_rank > 0 && temp_rank < 9)
-				moves.add(new Location(file, temp_rank));
-			else
-				break;
+			temp_location = new Location(file, temp_rank);
+			if (temp_rank > 0 && temp_rank < 9){
+				if(board.is_vacant_at(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.can_capture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
 			file = file.getNext();
+			temp_rank -= 1;
 		}
 
 		file = location.file.getPrev();
-		temp_rank = location.rank;
+		temp_rank = location.rank + 1;
 		// to top left
 		while (file != null) {
-			temp_rank += 1;
-			if (temp_rank > 0 && temp_rank < 9)
-				moves.add(new Location(file, temp_rank));
-			else
-				break;
+			temp_location = new Location(file, temp_rank);
+			if (temp_rank > 0 && temp_rank < 9){
+				if(board.is_vacant_at(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.can_capture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
 			file = file.getPrev();
+			temp_rank += 1;
 		}
 
 		return moves;

@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-
 public abstract class Piece {
 	protected Color color;
 	protected Location location;
@@ -14,5 +12,5 @@ public abstract class Piece {
 		System.out.println(this.color + "-" + this.getClass() + "-" + this.location.file + "-" + this.location.rank);
 	}
 	
-	public abstract ArrayList<Location> valid_moves(Board board);
+	public abstract LocationList valid_moves(Board board);
 }

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public abstract class Validator {
 	protected Board board;
@@ -9,5 +9,5 @@ public abstract class Validator {
 		this.piece = piece;
 	}
 	
-	public abstract ArrayList<Location> validate();
+	public abstract LocationList validate();
 }

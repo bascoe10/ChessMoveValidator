@@ -16,33 +16,13 @@ public class ChessMoveValidator {
 		LocationList moves;
 		
 		MoveValidator validator = new MoveValidator(board, p);
-//		validator.validate();
-//		System.out.println("ROOK F1---------------");
-//		p = board.board[0][5];
-		validator.validate();
-		moves = validator.moves_that_can_lead_to_check();
+		moves = validator.moves_that_cannot_lead_to_check();
 		if(moves.isEmpty())
 			System.out.println("No valid moves");
 		else{
 			for(Location l: moves)
 				System.out.println(l);
 		}
-		board.display();
-//		System.out.println("----------------------");
-//		
-//		System.out.println("KING G1---------------");
-//		p = board.board[0][6];
-//		moves = p.valid_moves();
-//		for(Location l: moves)
-//			System.out.println(l);
-//		System.out.println("----------------------");
-		
-//		System.out.println("BISHOP F5---------------");
-//		p = board.board[4][5];
-//		moves = p.valid_moves();
-//		for(Location l: moves)
-//			System.out.println(l);
-//		System.out.println("----------------------");
 	}
 	
 	public static ConfigurationLoader configuration_loader(String filetype, String filename){
