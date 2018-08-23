@@ -2,7 +2,7 @@
 
 public class RookPiece extends Piece {
 
-	RookPiece(Color color, File file, int rank) {
+	RookPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
 		// TODO Auto-generated constructor stub
 	}

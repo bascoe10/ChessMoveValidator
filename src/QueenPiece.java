@@ -2,7 +2,7 @@
 
 public class QueenPiece extends Piece {
 
-	QueenPiece(Color color, File file, int rank) {
+	QueenPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
 		moves = new LocationList();
 		// TODO Auto-generated constructor stub
@@ -28,18 +28,18 @@ public class QueenPiece extends Piece {
 		LocationList vertical_moves = new LocationList();
 		Location temp_location = null;
 		File file = null;
-		
-		for(int i =1; i<= 8; i++){
-			if(location.rank == i){
+		Rank rank = Rank.ONE;
+		while(rank != null){
+			if(location.rank == rank){
 				continue;
 			}
 			
-			temp_location = new Location(location.file, i);
+			temp_location = new Location(location.file, rank);
 			
 			if(board.isVacantAt(temp_location))
 				vertical_moves.add(temp_location);
 			else if(board.canCapture(this, temp_location)){
-				if(i < location.rank){
+				if(rank.lessThan(location.rank)){
 					vertical_moves.clear();
 					vertical_moves.add(temp_location);
 				} else {
@@ -47,7 +47,7 @@ public class QueenPiece extends Piece {
 					break;
 				}
 			} else {
-				if(i < location.rank){
+				if(rank.lessThan(location.rank)){
 					vertical_moves.clear();
 				} else {
 					break;
@@ -97,12 +97,12 @@ public class QueenPiece extends Piece {
 		
 		// to top right
 		File file = location.file.getNext();
-		int temp_rank = location.rank + 1;
+		Rank temp_rank = location.rank.getNext();
 		Location temp_location = null;
 		
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -111,17 +111,16 @@ public class QueenPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getNext();	
 			}
 			file = file.getNext();
-			temp_rank += 1;
 		}
 		// to bottom left
 		file = location.file.getPrev();
-		temp_rank = location.rank - 1;
+		temp_rank = location.rank.getPrev();
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -130,18 +129,17 @@ public class QueenPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getPrev();
 			}
 			file = file.getPrev();
-			temp_rank -= 1;
 		}
 
 		file = location.file.getNext();
-		temp_rank = location.rank - 1;
+		temp_rank = location.rank.getPrev();
 		// to bottom right
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -150,18 +148,17 @@ public class QueenPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getPrev();
 			}
 			file = file.getNext();
-			temp_rank -= 1;
 		}
 
 		file = location.file.getPrev();
-		temp_rank = location.rank + 1;
+		temp_rank = location.rank.getNext();
 		// to top left
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -170,10 +167,9 @@ public class QueenPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getNext();
 			}
 			file = file.getPrev();
-			temp_rank += 1;
 		}
 	}
 

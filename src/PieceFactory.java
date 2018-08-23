@@ -9,12 +9,37 @@ public abstract class PieceFactory {
 	public Piece build(String piece_config){
 		char type = piece_config.charAt(0);
 		File file = char_to_file(piece_config.charAt(1));
-		int rank = Character.getNumericValue(piece_config.charAt(2));
+		Rank rank = char_to_rank(piece_config.charAt(2));
 		// TODO validate rank and file
 		return build_piece(type, file, rank);
 	}
 	
-	private Piece build_piece(char type, File file, int rank){
+	private Rank char_to_rank(char rank) {
+		Rank _rank = null;
+		switch(rank){
+		case '1': _rank = Rank.ONE;
+			break;
+		case '2': _rank = Rank.TWO;
+			break;
+		case '3': _rank = Rank.THREE;
+			break;
+		case '4': _rank = Rank.FOUR;
+			break;
+		case '5': _rank = Rank.FIVE;
+			break;
+		case '6': _rank = Rank.SIX;
+			break;
+		case '7': _rank = Rank.SEVEN;
+			break;
+		case '8': _rank = Rank.EIGHT;
+			break;
+		default:
+			// TODO raise 
+		}
+		return _rank;
+	}
+
+	private Piece build_piece(char type, File file, Rank rank){
 		Piece piece = null;
 		switch(type){
 		case 'K': piece = new KingPiece(color, file, rank);

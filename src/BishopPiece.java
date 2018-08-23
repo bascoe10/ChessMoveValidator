@@ -2,7 +2,7 @@
 
 public class BishopPiece extends Piece {
 
-	BishopPiece(Color color, File file, int rank) {
+	BishopPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
 		// TODO Auto-generated constructor stub
 	}

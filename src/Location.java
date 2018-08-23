@@ -1,9 +1,9 @@
 
 public class Location {
 	public File file;
-	public int rank;
+	public Rank rank;
 	
-	Location(File file, int rank){
+	Location(File file, Rank rank){
 		this.file = file;
 		this.rank = rank;
 	}
@@ -11,7 +11,7 @@ public class Location {
 	public String toString(){
 		StringBuilder string = new StringBuilder("");
 		string = string.append(file);
-		string = string.append(String.valueOf(rank));
+		string = string.append(String.valueOf(rank.getValue()+1));
 		return string.toString();
 	}
 	

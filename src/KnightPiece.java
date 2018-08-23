@@ -2,7 +2,7 @@
 
 public class KnightPiece extends Piece {
 
-	KnightPiece(Color color, File file, int rank) {
+	KnightPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
 		// TODO Auto-generated constructor stub
 	}
