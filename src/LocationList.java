@@ -35,13 +35,11 @@ public class LocationList implements Collection<Location> {
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
 		return locations.toArray();
 	}
 
 	@Override
 	public boolean add(Location location) {
-		// TODO Auto-generated method stub
 		return locations.add(location);
 	}
 
@@ -58,32 +56,30 @@ public class LocationList implements Collection<Location> {
 
 	@Override
 	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] array = locations.toArray();
+		if(array == null)
+			return null;
+		return (T[]) array;
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return locations.containsAll(c);
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends Location> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return locations.addAll(c);
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return locations.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return locations.retainAll(c);
 	}
 
 }

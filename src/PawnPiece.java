@@ -14,16 +14,39 @@ public class PawnPiece extends Piece {
 		
 		Location temp_location = null;
 		if(color == Color.WHITE){
-			temp_location = new Location(this.location.file, this.location.rank-1);
-			if(board.is_vacant_at(temp_location))
-				moves.add(temp_location);
-		} else {
 			temp_location = new Location(this.location.file, this.location.rank+1);
 			if(board.is_vacant_at(temp_location))
 				moves.add(temp_location);
-		}
+			//special first move
+			temp_location = new Location(this.location.file, this.location.rank+2);
+			if(this.location.rank == 2)
+				moves.add(temp_location);
+			//capture piece in diagonal
+			temp_location = new Location(this.location.file.getPrev(), this.location.rank+1);
+			if(board.can_capture(this, temp_location))
+				moves.add(temp_location);
 			
-		// TODO account for capture move
+			temp_location = new Location(this.location.file.getNext(), this.location.rank+1);
+			if(board.can_capture(this, temp_location))
+				moves.add(temp_location);
+			
+		} else {
+			temp_location = new Location(this.location.file, this.location.rank-1);
+			if(board.is_vacant_at(temp_location))
+				moves.add(temp_location);
+			temp_location = new Location(this.location.file, this.location.rank-2);
+			if(this.location.rank == 7)
+				moves.add(temp_location);
+			
+			//capture piece in diagonal
+			temp_location = new Location(this.location.file.getPrev(), this.location.rank-1);
+			if(board.can_capture(this, temp_location))
+				moves.add(temp_location);
+			
+			temp_location = new Location(this.location.file.getNext(), this.location.rank-1);
+			if(board.can_capture(this, temp_location))
+				moves.add(temp_location);
+		}
 		return moves;
 	}
 	

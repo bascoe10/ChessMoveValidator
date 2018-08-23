@@ -14,5 +14,15 @@ public class Location {
 		string = string.append(String.valueOf(rank));
 		return string.toString();
 	}
-
+	
+	public boolean equals(Object o){
+		Location location = (Location) o;
+		if(location == null)
+			return false;
+		return(this.file == location.file && this.rank == location.rank);
+	}
+	
+	public int hashCode() {
+	  return 206; // any arbitrary constant will do
+	}
 }

@@ -12,11 +12,11 @@ public class ChessMoveValidator {
 		System.out.println(p.location);
 		
 		Board board = new Board(black_pieces, white_pieces);
-		board.display();
+		System.out.println(board);
 		LocationList moves;
 		
 		MoveValidator validator = new MoveValidator(board, p);
-		moves = validator.moves_that_cannot_lead_to_check();
+		moves = validator.legalMoves();
 		if(moves.isEmpty())
 			System.out.println("No valid moves");
 		else{

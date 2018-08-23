@@ -17,6 +17,7 @@ public class RookPiece extends Piece {
 		
 		Location temp_location = null;
 		
+		//movement along the ranks
 		for(int i =1; i<= 8; i++){
 			if(location.rank == i)
 				continue;
@@ -42,7 +43,7 @@ public class RookPiece extends Piece {
 			}
 		}
 		
-		
+		//movement along the files
 		File file = File.A;
 		while(file != null){
 			if(location.file == file){

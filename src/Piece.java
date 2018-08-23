@@ -8,8 +8,13 @@ public abstract class Piece {
 		this.location = new Location(file, rank);
 	}
 	
-	public void get_location(){
-		System.out.println(this.color + "-" + this.getClass() + "-" + this.location.file + "-" + this.location.rank);
+//	public void get_location(){
+//		System.out.println(this.color + "-" + this.getClass() + "-" + this.location.file + "-" + this.location.rank);
+//	}
+	
+	public boolean validRank(int range){
+		
+		return (range > 0 && range < 9);
 	}
 	
 	public abstract LocationList valid_moves(Board board);
