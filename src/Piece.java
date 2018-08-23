@@ -2,6 +2,7 @@
 public abstract class Piece {
 	protected Color color;
 	protected Location location;
+	protected LocationList moves;
 	
 	Piece(Color color, File file, int rank){
 		this.color = color;

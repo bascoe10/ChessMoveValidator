@@ -11,5 +11,5 @@ public abstract class ConfigurationLoader {
 		this.loadConfig();
 	}
 
-	abstract void loadConfig();
+	abstract protected void loadConfig();
 }

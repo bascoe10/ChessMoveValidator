@@ -3,7 +3,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class LocationList implements Collection<Location> {
-	ArrayList<Location> locations;
+	private ArrayList<Location> locations;
 	
 	public LocationList() {
 		this.locations = new ArrayList<Location>();

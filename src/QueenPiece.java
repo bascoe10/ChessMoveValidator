@@ -4,103 +4,30 @@ public class QueenPiece extends Piece {
 
 	QueenPiece(Color color, File file, int rank) {
 		super(color, file, rank);
+		moves = new LocationList();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public LocationList validMoves(Board board) {
-		
+		diagonalMoves(board);
 
+		axisMoves(board);
+		
+		return moves;
+	}
+	
+	
+	public String toString(){
+		return "Q";
+	}
+	
+	private void axisMoves(Board board){
+		//axis motion
 		LocationList horizontal_moves = new LocationList();
 		LocationList vertical_moves = new LocationList();
-
-		LocationList moves = new LocationList();
-		
-		// Diagonal motion
-		
-		// to top right
-		File file = location.file.getNext();
-		int temp_rank = location.rank + 1;
 		Location temp_location = null;
-		
-		while (file != null) {
-			temp_location = new Location(file, temp_rank);
-			if (temp_rank > 0 && temp_rank < 9){
-				if(board.isVacantAt(temp_location))
-					moves.add(new Location(file, temp_rank));
-				else if(board.canCapture(this, temp_location)){
-					moves.add(new Location(file, temp_rank));
-					break;
-				} else {
-					break;
-				}
-					
-			}
-			file = file.getNext();
-			temp_rank += 1;
-		}
-		// to bottom left
-		file = location.file.getPrev();
-		temp_rank = location.rank - 1;
-		while (file != null) {
-			temp_location = new Location(file, temp_rank);
-			if (temp_rank > 0 && temp_rank < 9){
-				if(board.isVacantAt(temp_location))
-					moves.add(new Location(file, temp_rank));
-				else if(board.canCapture(this, temp_location)){
-					moves.add(new Location(file, temp_rank));
-					break;
-				} else {
-					break;
-				}
-					
-			}
-			file = file.getPrev();
-			temp_rank -= 1;
-		}
-
-		file = location.file.getNext();
-		temp_rank = location.rank - 1;
-		// to bottom right
-		while (file != null) {
-			temp_location = new Location(file, temp_rank);
-			if (temp_rank > 0 && temp_rank < 9){
-				if(board.isVacantAt(temp_location))
-					moves.add(new Location(file, temp_rank));
-				else if(board.canCapture(this, temp_location)){
-					moves.add(new Location(file, temp_rank));
-					break;
-				} else {
-					break;
-				}
-					
-			}
-			file = file.getNext();
-			temp_rank -= 1;
-		}
-
-		file = location.file.getPrev();
-		temp_rank = location.rank + 1;
-		// to top left
-		while (file != null) {
-			temp_location = new Location(file, temp_rank);
-			if (temp_rank > 0 && temp_rank < 9){
-				if(board.isVacantAt(temp_location))
-					moves.add(new Location(file, temp_rank));
-				else if(board.canCapture(this, temp_location)){
-					moves.add(new Location(file, temp_rank));
-					break;
-				} else {
-					break;
-				}
-					
-			}
-			file = file.getPrev();
-			temp_rank += 1;
-		}
-
-		
-		//axis motion
+		File file = null;
 		
 		for(int i =1; i<= 8; i++){
 			if(location.rank == i){
@@ -141,7 +68,7 @@ public class QueenPiece extends Piece {
 			if(board.isVacantAt(temp_location))
 				horizontal_moves.add(temp_location);
 			else if(board.canCapture(this, temp_location)){
-				if(file.ordinal() < location.file.ordinal()){
+				if(file.lessThan(location.file)){
 					horizontal_moves.clear();
 					horizontal_moves.add(temp_location);
 				} else {
@@ -149,7 +76,7 @@ public class QueenPiece extends Piece {
 					break;
 				}
 			} else {
-				if(file.ordinal() < location.file.ordinal()){
+				if(file.lessThan(location.file)){
 					horizontal_moves.clear();
 				} else {
 					break;
@@ -163,13 +90,91 @@ public class QueenPiece extends Piece {
 			moves.add(location);
 		for(Location location: vertical_moves)
 			moves.add(location);
-		
-		return moves;
 	}
 	
-	
-	public String toString(){
-		return "Q";
+	private void diagonalMoves(Board board){
+		// Diagonal motion
+		
+		// to top right
+		File file = location.file.getNext();
+		int temp_rank = location.rank + 1;
+		Location temp_location = null;
+		
+		while (file != null) {
+			temp_location = new Location(file, temp_rank);
+			if (validRank(temp_rank)){
+				if(board.isVacantAt(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.canCapture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
+			file = file.getNext();
+			temp_rank += 1;
+		}
+		// to bottom left
+		file = location.file.getPrev();
+		temp_rank = location.rank - 1;
+		while (file != null) {
+			temp_location = new Location(file, temp_rank);
+			if (validRank(temp_rank)){
+				if(board.isVacantAt(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.canCapture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
+			file = file.getPrev();
+			temp_rank -= 1;
+		}
+
+		file = location.file.getNext();
+		temp_rank = location.rank - 1;
+		// to bottom right
+		while (file != null) {
+			temp_location = new Location(file, temp_rank);
+			if (validRank(temp_rank)){
+				if(board.isVacantAt(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.canCapture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
+			file = file.getNext();
+			temp_rank -= 1;
+		}
+
+		file = location.file.getPrev();
+		temp_rank = location.rank + 1;
+		// to top left
+		while (file != null) {
+			temp_location = new Location(file, temp_rank);
+			if (validRank(temp_rank)){
+				if(board.isVacantAt(temp_location))
+					moves.add(new Location(file, temp_rank));
+				else if(board.canCapture(this, temp_location)){
+					moves.add(new Location(file, temp_rank));
+					break;
+				} else {
+					break;
+				}
+					
+			}
+			file = file.getPrev();
+			temp_rank += 1;
+		}
 	}
 
 }
