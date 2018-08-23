@@ -8,7 +8,7 @@ public class KnightPiece extends Piece {
 	}
 
 	@Override
-	public LocationList valid_moves(Board board) {
+	public LocationList validMoves(Board board) {
 		LocationList moves = new LocationList();
 		
 		int rank_plus_two = location.rank + 2;

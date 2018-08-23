@@ -37,7 +37,7 @@ public class BoardTest {
 	public void testBoardDisplayMethodWithEmptyBoard() {
 		board = new Board(black, white);
 		
-		String str_board = new StringBuilder("8| | | | | | | | |7| | | | | | | | |6| | | | | | | | |5| | | | | | | | |4| | | | | | | | |3| | | | | | | | |2| | | | | | | | |1| | | | | | | | | |A|B|C|D|E|F|G|H|").toString();
+		String str_board = new StringBuilder("8| | | | | | | | |\n7| | | | | | | | |\n6| | | | | | | | |\n5| | | | | | | | |\n4| | | | | | | | |\n3| | | | | | | | |\n2| | | | | | | | |\n1| | | | | | | | |\n |A|B|C|D|E|F|G|H|\n").toString();
 		
 		Assert.assertEquals(str_board, board.toString());
 	}
@@ -83,7 +83,7 @@ public class BoardTest {
 		
 		board = new Board(black, white);
 		
-		String str_board = new StringBuilder("8|R|N|B|Q|K|B|N|R|7|P|P|P|P|P|P|P|P|6| | | | | | | | |5| | | | | | | | |4| | | | | | | | |3| | | | | | | | |2|P|P|P|P|P|P|P|P|1|R|N|B|Q|K|B|N|R| |A|B|C|D|E|F|G|H|").toString();
+		String str_board = new StringBuilder("8|R|N|B|Q|K|B|N|R|\n7|P|P|P|P|P|P|P|P|\n6| | | | | | | | |\n5| | | | | | | | |\n4| | | | | | | | |\n3| | | | | | | | |\n2|P|P|P|P|P|P|P|P|\n1|R|N|B|Q|K|B|N|R|\n |A|B|C|D|E|F|G|H|\n").toString();
 		
 		Assert.assertEquals(str_board, board.toString());
 	}

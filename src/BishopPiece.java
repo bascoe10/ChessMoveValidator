@@ -8,7 +8,7 @@ public class BishopPiece extends Piece {
 	}
 
 	@Override
-	public LocationList valid_moves(Board board) {
+	public LocationList validMoves(Board board) {
 		LocationList moves = new LocationList();
 		
 		// to top right

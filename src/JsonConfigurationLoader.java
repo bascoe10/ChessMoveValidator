@@ -12,7 +12,7 @@ public class JsonConfigurationLoader extends ConfigurationLoader {
 		super(filename);
 	}
 
-	void load_config(){
+	void loadConfig(){
 		try {
 			Object obj = new JSONParser().parse(new FileReader(this.filename));
 			JSONObject config = (JSONObject) obj;

@@ -2,7 +2,7 @@
   "black": [
     "Rf1",
     "Kg1",
-    "Bf2",
+    "Pf2",
     "Ph2",
     "Pg3",
     "Bf5"
@@ -13,8 +13,7 @@
     "Pa7",
     "Pb7",
     "Pc7",
-    "Ra5",
-    "Qb6"
+    "Ra5"
   ],
-  "piece_to_move": "Bf2"
+  "piece_to_move": "Rf1"
 }

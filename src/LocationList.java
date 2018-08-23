@@ -54,6 +54,7 @@ public class LocationList implements Collection<Location> {
 		locations.clear();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T[] toArray(T[] a) {
 		Object[] array = locations.toArray();

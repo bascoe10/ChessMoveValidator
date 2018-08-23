@@ -32,9 +32,9 @@ public class Board {
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
 		for(int i = 7; i>=0; i--){
-			builder.append(i+1 + "|" + pieceString(board[i][0]) + "|" + pieceString(board[i][1]) + "|" + pieceString(board[i][2]) + "|" + pieceString(board[i][3]) + "|" + pieceString(board[i][4]) + "|" + pieceString(board[i][5]) + "|" + pieceString(board[i][6]) + "|" + pieceString(board[i][7]) + "|");
+			builder.append(i+1 + "|" + pieceString(board[i][0]) + "|" + pieceString(board[i][1]) + "|" + pieceString(board[i][2]) + "|" + pieceString(board[i][3]) + "|" + pieceString(board[i][4]) + "|" + pieceString(board[i][5]) + "|" + pieceString(board[i][6]) + "|" + pieceString(board[i][7]) + "|\n");
 		}	
-		builder.append(" |A|B|C|D|E|F|G|H|");
+		builder.append(" |A|B|C|D|E|F|G|H|\n");
 		return builder.toString();
 	}
 	
@@ -97,7 +97,7 @@ public class Board {
 		this.movePiece(piece, location);
 		
 		for(Piece p: pieces){
-			moves = p.valid_moves(this);
+			moves = p.validMoves(this);
 			for(Location l: moves){
 				if(piece instanceof KingPiece){
 					if(king != null && l.file.ordinal() == location.file.ordinal() && l.rank == location.rank){

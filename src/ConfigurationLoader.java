@@ -8,8 +8,8 @@ public abstract class ConfigurationLoader {
 	
 	public ConfigurationLoader(String filename){
 		this.filename = filename;
-		this.load_config();
+		this.loadConfig();
 	}
 
-	abstract void load_config();
+	abstract void loadConfig();
 }

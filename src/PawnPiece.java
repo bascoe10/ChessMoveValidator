@@ -8,7 +8,7 @@ public class PawnPiece extends Piece {
 	}
 
 	@Override
-	public LocationList valid_moves(Board board) {
+	public LocationList validMoves(Board board) {
 		// TODO account handle special move
 		LocationList moves = new LocationList();
 		

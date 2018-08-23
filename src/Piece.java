@@ -17,5 +17,5 @@ public abstract class Piece {
 		return (range > 0 && range < 9);
 	}
 	
-	public abstract LocationList valid_moves(Board board);
+	public abstract LocationList validMoves(Board board);
 }

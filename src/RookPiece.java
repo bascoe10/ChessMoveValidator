@@ -8,7 +8,7 @@ public class RookPiece extends Piece {
 	}
 
 	@Override
-	public LocationList valid_moves(Board board) {
+	public LocationList validMoves(Board board) {
 		
 		LocationList horizontal_moves = new LocationList();
 		LocationList vertical_moves = new LocationList();
