@@ -29,41 +29,41 @@ public class KnightPiece extends Piece {
 		Location temp_location = null;
 		if(file_minus_one != null){
 			temp_location = new Location(file_minus_one, rank_minus_two);
-			if(validRank(rank_minus_two) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_minus_two) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 			
 			temp_location = new Location(file_minus_one, rank_plus_two);
-			if(validRank(rank_plus_two) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_plus_two) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 		}
 		
 		if(file_minus_two != null){
 			temp_location = new Location(file_minus_two, rank_plus_one);
-			if(validRank(rank_plus_one) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_plus_one) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 			
 			temp_location = new Location(file_minus_two, rank_minus_one);
-			if(validRank(rank_minus_one) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_minus_one) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 		}
 		
 		if(file_plus_one != null){
 			temp_location = new Location(file_plus_one, rank_minus_two);
-			if(validRank(rank_minus_two) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_minus_two) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 			
 			temp_location = new Location(file_plus_one, rank_plus_two);
-			if(validRank(rank_plus_two) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_plus_two) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 		}
 		
 		if(file_plus_two != null){
 			temp_location = new Location(file_plus_two, rank_plus_one);
-			if(validRank(rank_plus_one) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_plus_one) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 			
 			temp_location = new Location(file_plus_two, rank_minus_one);
-			if(validRank(rank_minus_one) && (board.is_vacant_at(temp_location) || board.can_capture(this, temp_location)))
+			if(validRank(rank_minus_one) && (board.isVacantAt(temp_location) || board.canCapture(this, temp_location)))
 				moves.add(temp_location);
 		}
 		

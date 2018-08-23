@@ -26,9 +26,9 @@ public class QueenPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (temp_rank > 0 && temp_rank < 9){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -45,9 +45,9 @@ public class QueenPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (temp_rank > 0 && temp_rank < 9){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -65,9 +65,9 @@ public class QueenPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (temp_rank > 0 && temp_rank < 9){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -85,9 +85,9 @@ public class QueenPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (temp_rank > 0 && temp_rank < 9){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -109,9 +109,9 @@ public class QueenPiece extends Piece {
 			
 			temp_location = new Location(location.file, i);
 			
-			if(board.is_vacant_at(temp_location))
+			if(board.isVacantAt(temp_location))
 				vertical_moves.add(temp_location);
-			else if(board.can_capture(this, temp_location)){
+			else if(board.canCapture(this, temp_location)){
 				if(i < location.rank){
 					vertical_moves.clear();
 					vertical_moves.add(temp_location);
@@ -138,9 +138,9 @@ public class QueenPiece extends Piece {
 			
 			temp_location = new Location(file, location.rank);
 			
-			if(board.is_vacant_at(temp_location))
+			if(board.isVacantAt(temp_location))
 				horizontal_moves.add(temp_location);
-			else if(board.can_capture(this, temp_location)){
+			else if(board.canCapture(this, temp_location)){
 				if(file.ordinal() < location.file.ordinal()){
 					horizontal_moves.clear();
 					horizontal_moves.add(temp_location);

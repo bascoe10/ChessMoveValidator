@@ -22,7 +22,7 @@ public class MoveValidator {
 	public LocationList legalMoves(){
 		moves.clear();
 		for(Location location: validator.validate()){
-			if(!(board.will_lead_to_check(piece, location)))
+			if(!(board.willLeadToCheck(piece, location)))
 				moves.add(location);
 		}
 		return moves;

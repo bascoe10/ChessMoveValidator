@@ -18,9 +18,9 @@ public class BishopPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (validRank(temp_rank)){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -37,9 +37,9 @@ public class BishopPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (validRank(temp_rank)){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -57,9 +57,9 @@ public class BishopPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (validRank(temp_rank)){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {
@@ -77,9 +77,9 @@ public class BishopPiece extends Piece {
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
 			if (validRank(temp_rank)){
-				if(board.is_vacant_at(temp_location))
+				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
-				else if(board.can_capture(this, temp_location)){
+				else if(board.canCapture(this, temp_location)){
 					moves.add(new Location(file, temp_rank));
 					break;
 				} else {

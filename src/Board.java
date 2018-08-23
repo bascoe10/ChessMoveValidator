@@ -9,7 +9,7 @@ public class Board {
 	
 	private Piece piece_to_allow_for_move;
 	
-	Piece[][] board = new Piece[8][8];
+	private Piece[][] board = new Piece[8][8];
 	
 	public Board(ArrayList<Piece> black, ArrayList<Piece> white){
 		this.black = black;
@@ -32,34 +32,34 @@ public class Board {
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
 		for(int i = 7; i>=0; i--){
-			builder.append(i+1 + "|" + piece_string(board[i][0]) + "|" + piece_string(board[i][1]) + "|" + piece_string(board[i][2]) + "|" + piece_string(board[i][3]) + "|" + piece_string(board[i][4]) + "|" + piece_string(board[i][5]) + "|" + piece_string(board[i][6]) + "|" + piece_string(board[i][7]) + "|");
+			builder.append(i+1 + "|" + pieceString(board[i][0]) + "|" + pieceString(board[i][1]) + "|" + pieceString(board[i][2]) + "|" + pieceString(board[i][3]) + "|" + pieceString(board[i][4]) + "|" + pieceString(board[i][5]) + "|" + pieceString(board[i][6]) + "|" + pieceString(board[i][7]) + "|");
 		}	
 		builder.append(" |A|B|C|D|E|F|G|H|");
 		return builder.toString();
 	}
 	
-	private String piece_string(Piece piece){
+	private String pieceString(Piece piece){
 		if(piece == null)
 			return " ";
 		return piece.toString();
 	}
 
-	public boolean is_vacant_at(Location location) {
+	public boolean isVacantAt(Location location) {
 		return board[location.rank-1][location.file.ordinal()] == null;
 	}
 
-	public boolean can_capture(Piece piece, Location location) {
+	public boolean canCapture(Piece piece, Location location) {
 		if(location.file == null || location.rank < 1 || location.rank > 8)
 			return false;
-		if(is_vacant_at(location))
+		if(isVacantAt(location))
 			return false;
 		return piece.color != board[location.rank-1][location.file.ordinal()].color;
 	}
 	
-	public void move_piece(Piece piece, Location location) {
+	public void movePiece(Piece piece, Location location) {
 		Piece p_location = board[location.rank-1][location.file.ordinal()];
 		board[piece.location.rank-1][piece.location.file.ordinal()] = null;
-		if(!(p_location == null)){
+		if(p_location != null){
 			piece_to_allow_for_move = p_location;
 			if(p_location.color == Color.BLACK)
 				black.remove(p_location);
@@ -67,10 +67,9 @@ public class Board {
 				white.remove(p_location);
 		}
 		board[location.rank-1][location.file.ordinal()] = piece;
-		return;
 	}
 
-	public void move_piece_back(Piece piece, Location location) {
+	public void movePieceBack(Piece piece, Location location) {
 		board[piece.location.rank-1][piece.location.file.ordinal()] = piece;
 		board[location.rank-1][location.file.ordinal()] = piece_to_allow_for_move;
 		if(piece_to_allow_for_move == null)
@@ -80,10 +79,9 @@ public class Board {
 		else
 			white.add(piece_to_allow_for_move);
 		piece_to_allow_for_move = null;
-		return;
 	}
 	
-	public boolean will_lead_to_check(Piece piece, Location location){
+	public boolean willLeadToCheck(Piece piece, Location location){
 		ArrayList<Piece> pieces = null;
 		KingPiece king = null;
 		LocationList moves = null;
@@ -96,7 +94,7 @@ public class Board {
 			king = white_king;
 			pieces = black;
 		}
-		this.move_piece(piece, location);
+		this.movePiece(piece, location);
 		
 		for(Piece p: pieces){
 			moves = p.valid_moves(this);
@@ -113,10 +111,10 @@ public class Board {
 					}
 				}
 			}
-			if(in_check == true)
+			if(in_check)
 				break;
 		}
-		this.move_piece_back(piece, location);
+		this.movePieceBack(piece, location);
 		
 		return in_check;
 	}

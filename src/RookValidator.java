@@ -22,10 +22,10 @@ public class RookValidator extends Validator {
 //		}
 //		
 //		for(Location location: vertical_moves){
-//			if(board.is_vacant_at(location)){
+//			if(board.isVacantAt(location)){
 //				temp.add(location);
 //			}else{
-//				if(board.can_capture(piece, location)){
+//				if(board.canCapture(piece, location)){
 //					if(location.rank < piece.location.rank){
 //						temp.clear();
 //						temp.add(location);
@@ -47,10 +47,10 @@ public class RookValidator extends Validator {
 //		temp.clear();
 //		
 //		for(Location location: horizontal_moves){
-//			if(board.is_vacant_at(location)){
+//			if(board.isVacantAt(location)){
 //				temp.add(location);
 //			}else{
-//				if(board.can_capture(piece, location)){
+//				if(board.canCapture(piece, location)){
 //					if(location.file.ordinal() < piece.location.file.ordinal()){
 //						temp.clear();
 //						temp.add(location);

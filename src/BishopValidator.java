@@ -17,9 +17,9 @@ public class BishopValidator extends Validator {
 //		
 //		for(Location location: piece.valid_moves()){
 //			if(location.file.ordinal() > piece.location.file.ordinal() && location.rank > piece.location.rank && !quad_1){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_1 = true;
 //				}else
@@ -28,9 +28,9 @@ public class BishopValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() < piece.location.file.ordinal() && location.rank > piece.location.rank && !quad_2){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_2 = true;
 //				}else
@@ -39,9 +39,9 @@ public class BishopValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() < piece.location.file.ordinal() && location.rank < piece.location.rank && !quad_3){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_3 = true;
 //				}else
@@ -50,9 +50,9 @@ public class BishopValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() > piece.location.file.ordinal() && location.rank < piece.location.rank && !quad_4){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_4 = true;
 //				}else

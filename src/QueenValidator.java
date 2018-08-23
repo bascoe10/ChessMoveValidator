@@ -26,10 +26,10 @@ public class QueenValidator extends Validator {
 //		}
 //		
 //		for(Location location: vertical_moves){
-//			if(board.is_vacant_at(location)){
+//			if(board.isVacantAt(location)){
 //				temp.add(location);
 //			}else{
-//				if(board.can_capture(piece, location)){
+//				if(board.canCapture(piece, location)){
 //					if(location.rank < piece.location.rank){
 //						temp.clear();
 //						temp.add(location);
@@ -51,10 +51,10 @@ public class QueenValidator extends Validator {
 //		temp.clear();
 //		
 //		for(Location location: horizontal_moves){
-//			if(board.is_vacant_at(location)){
+//			if(board.isVacantAt(location)){
 //				temp.add(location);
 //			}else{
-//				if(board.can_capture(piece, location)){
+//				if(board.canCapture(piece, location)){
 //					if(location.file.ordinal() < piece.location.file.ordinal()){
 //						temp.clear();
 //						temp.add(location);
@@ -77,9 +77,9 @@ public class QueenValidator extends Validator {
 //		
 //		for(Location location: piece.valid_moves()){
 //			if(location.file.ordinal() > piece.location.file.ordinal() && location.rank > piece.location.rank && !quad_1){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_1 = true;
 //				}else
@@ -88,9 +88,9 @@ public class QueenValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() < piece.location.file.ordinal() && location.rank > piece.location.rank && !quad_2){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_2 = true;
 //				}else
@@ -99,9 +99,9 @@ public class QueenValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() < piece.location.file.ordinal() && location.rank < piece.location.rank && !quad_3){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_3 = true;
 //				}else
@@ -110,9 +110,9 @@ public class QueenValidator extends Validator {
 //			}
 //			
 //			if(location.file.ordinal() > piece.location.file.ordinal() && location.rank < piece.location.rank && !quad_4){
-//				if(board.is_vacant_at(location))
+//				if(board.isVacantAt(location))
 //					valid_moves.add(location);
-//				else if(board.can_capture(piece, location)){
+//				else if(board.canCapture(piece, location)){
 //					valid_moves.add(location);
 //					quad_4 = true;
 //				}else
