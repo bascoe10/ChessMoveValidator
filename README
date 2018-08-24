@@ -1,0 +1,170 @@
+Abass Sesay
+CS 576
+-------------------------------------------------------------------------------
+#Description
+============
+ChessMoveValidator is a program that takes as input a chess board configuration
+and the piece to move and then outputs all the valid moves for that piece.
+Current implementation only support JSON input.
+E.g Input
+
+{
+  "black": [
+    "Rf1",
+    "Kg1",
+    "Pf2",
+    "Ph2",
+    "Pg3",
+    "Bf5"
+  ],
+  "white": [
+    "Kb8",
+    "Be8",
+    "Pa7",
+    "Pb7",
+    "Pc7",
+    "Ra5"
+  ],
+  "piece_to_move": "Rf1"
+}
+
+corresponding board Layout
+
+8| |K| | |B| | | |
+7|P|P|P| | | | | |
+6| | | | | | | | |
+5|R| | | | |B| | |
+4| | | | | | | | |
+3| | | | | | |P| |
+2| | | | | |P| |P|
+1| | | | | |R|K| |
+ |A|B|C|D|E|F|G|H|
+
+-------------------------------------------------------------------------------
+#Files
+===========
+** See Files for directory structure
+├── bin
+│   ├── AllTests.class
+│   ├── BishopPiece.class
+│   ├── BishopPieceTest.class
+│   ├── BlackPieceFactory.class
+│   ├── Board.class
+│   ├── BoardTest.class
+│   ├── ChessMoveValidatorUtil.class
+│   ├── Color.class
+│   ├── ConfigurationLoader.class
+│   ├── File.class
+│   ├── JsonConfigurationLoader.class
+│   ├── KingPiece.class
+│   ├── KingPieceTest.class
+│   ├── KnightPiece.class
+│   ├── KnightPieceTest.class
+│   ├── Location.class
+│   ├── LocationList.class
+│   ├── LocationTest.class
+│   ├── MoveValidator.class
+│   ├── MoveValidatorTest.class
+│   ├── PawnPiece.class
+│   ├── PawnPieceTest.class
+│   ├── Piece.class
+│   ├── PieceFactory.class
+│   ├── PiecesBuilder.class
+│   ├── QueenPiece.class
+│   ├── QueenPieceTest.class
+│   ├── RookPiece.class
+│   ├── RookPieceTest.class
+│   ├── WhitePieceFactory.class
+│   └── package-info.class
+├── chess.json
+├── json-simple-1.1.1.jar
+├── junit.jar
+├── org.hamcrest.core_1.3.0.v201303031735.jar
+└── src
+    ├── AllTests.java - Test Suite
+    ├── BishopPiece.java - Class representation of a Bishop
+    ├── BishopPieceTest.java - Test for Bishop Piece
+    ├── BlackPieceFactory.java - Class responsible for build black pieces
+    ├── Board.java - Class representation of the board
+    ├── BoardTest.java - Test for Board
+    ├── ChessMoveValidatorUtil.java - Util class with Main
+    ├── Color.java - Enum for piece color
+    ├── ConfigurationLoader.java - Abstrt class of responsible for loading board
+    ├── File.java - Enum for board file
+    ├── JsonConfigurationLoader.java - Concrete JSON impl of ConfigurationLoader
+    ├── KingPiece.java - Class representation of a King
+    ├── KingPieceTest.java - Test for King piece
+    ├── KnightPiece.java - Class representation of a Bishop
+    ├── KnightPieceTest.java - Test for Knight piece
+    ├── Location.java - representation of a rank and file combined
+    ├── LocationList.java - collection of locations
+    ├── LocationTest.java - Test for location class
+    ├── MoveValidator.java - class responsible for abstracting move validation
+    ├── MoveValidatorTest.java - test for MoveValidator
+    ├── PawnPiece.java - Class representation of a Pawn
+    ├── PawnPieceTest.java - Test for Pawn piece
+    ├── Piece.java - Abstract class of a piece
+    ├── PieceFactory.java - Abstract class of a Factory responsible for pieces
+    ├── PiecesBuilder.java - responsible for using config to generate piece
+    ├── QueenPiece.java - Class representation of a Queen
+    ├── QueenPieceTest.java - Test for Queen piece
+    ├── RookPiece.java - Class representation of a Rook
+    ├── RookPieceTest.java - Test for Rook piece
+    ├── WhitePieceFactory.java - Class responsible for build white pieces
+    └── package-info.java
+
+--------------------------------------------------------------------------------
+#Design Rationale
+- ChessMoveValidatorUtil - Utility class that has the main function and glues
+all the other pieces together.
+
+- ConfigurationLoader - abstracts how configurations are loaded into the the
+program. In essence to support CSV file one would create a
+CsvConfigurationLoader and add support for `-c` flag
+
+- Piece - abstract board piece, it has a location on the board and can get all
+its possible moves pass on the overall board config.
+
+- PieceFactory - abstract the creation of the different pieces read by the
+ConfigurationLoader.
+
+- Board - represent a chess board
+--------------------------------------------------------------------------------
+#How to Run
+===========
+* assuming you are in the bin directory of the above layout
+
+java -classpath .:../json-simple-1.1.1.jar ChessMoveValidatorUtil -j ../chess.json
+
+Output:
+8| |K| | |B| | | |
+7|P|P|P| | | | | |
+6| | | | | | | | |
+5|R| | | | |B| | |
+4| | | | | | | | |
+3| | | | | | |P| |
+2| | | | | |P| |P|
+1| | | | | |R|K| |
+ |A|B|C|D|E|F|G|H|
+
+A1
+B1
+C1
+D1
+E1
+--------------------------------------------------------------------------------
+#Test
+=====
+** assuming you are in the bin directory of the above layout
+*whole suite
+java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore AllTests
+
+*individual test
+java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore <TestClass>
+--------------------------------------------------------------------------------
+#Known issue
+- currently the system only supports JSON file that should be passed with the
+`-j` flag followed by the filename.
+
+-the configuration is not currently checked if valid or not. e.g you can pass 2
+Kings for white/black and it would still accept.
