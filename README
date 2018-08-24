@@ -44,73 +44,83 @@ corresponding board Layout
 #Files
 ===========
 ** See Files for directory structure
+├── README
 ├── bin
-│   ├── AllTests.class
-│   ├── BishopPiece.class
-│   ├── BishopPieceTest.class
-│   ├── BlackPieceFactory.class
-│   ├── Board.class
-│   ├── BoardTest.class
-│   ├── ChessMoveValidatorUtil.class
-│   ├── Color.class
-│   ├── ConfigurationLoader.class
-│   ├── File.class
-│   ├── JsonConfigurationLoader.class
-│   ├── KingPiece.class
-│   ├── KingPieceTest.class
-│   ├── KnightPiece.class
-│   ├── KnightPieceTest.class
-│   ├── Location.class
-│   ├── LocationList.class
-│   ├── LocationTest.class
-│   ├── MoveValidator.class
-│   ├── MoveValidatorTest.class
-│   ├── PawnPiece.class
-│   ├── PawnPieceTest.class
-│   ├── Piece.class
-│   ├── PieceFactory.class
-│   ├── PiecesBuilder.class
-│   ├── QueenPiece.class
-│   ├── QueenPieceTest.class
-│   ├── RookPiece.class
-│   ├── RookPieceTest.class
-│   ├── WhitePieceFactory.class
+│   ├── cs576
+│   │   ├── AllTests.class
+│   │   ├── BishopPiece.class
+│   │   ├── BishopPieceTest.class
+│   │   ├── BlackPieceFactory.class
+│   │   ├── Board.class
+│   │   ├── BoardTest.class
+│   │   ├── ChessMoveValidatorUtil.class
+│   │   ├── Color.class
+│   │   ├── ConfigurationLoader.class
+│   │   ├── File.class
+│   │   ├── JsonConfigurationLoader.class
+│   │   ├── KingPiece.class
+│   │   ├── KingPieceTest.class
+│   │   ├── KnightPiece.class
+│   │   ├── KnightPieceTest.class
+│   │   ├── Location.class
+│   │   ├── LocationList.class
+│   │   ├── LocationTest.class
+│   │   ├── MoveValidator.class
+│   │   ├── MoveValidatorTest.class
+│   │   ├── PawnPiece.class
+│   │   ├── PawnPieceTest.class
+│   │   ├── Piece.class
+│   │   ├── PieceFactory.class
+│   │   ├── PiecesBuilder.class
+│   │   ├── QueenPiece.class
+│   │   ├── QueenPieceTest.class
+│   │   ├── Rank.class
+│   │   ├── RookPiece.class
+│   │   ├── RookPieceTest.class
+│   │   ├── WhitePieceFactory.class
+│   │   └── package-info.class
 │   └── package-info.class
 ├── chess.json
+├── codacy-coverage-reporter-4.0.2-assembly.jar
+├── codacy-coverage.json
+├── jacoco.xml
 ├── json-simple-1.1.1.jar
 ├── junit.jar
 ├── org.hamcrest.core_1.3.0.v201303031735.jar
 └── src
-    ├── AllTests.java - Test Suite
-    ├── BishopPiece.java - Class representation of a Bishop
-    ├── BishopPieceTest.java - Test for Bishop Piece
-    ├── BlackPieceFactory.java - Class responsible for build black pieces
-    ├── Board.java - Class representation of the board
-    ├── BoardTest.java - Test for Board
-    ├── ChessMoveValidatorUtil.java - Util class with Main
-    ├── Color.java - Enum for piece color
-    ├── ConfigurationLoader.java - Abstrt class of responsible for loading board
-    ├── File.java - Enum for board file
-    ├── JsonConfigurationLoader.java - Concrete JSON impl of ConfigurationLoader
-    ├── KingPiece.java - Class representation of a King
-    ├── KingPieceTest.java - Test for King piece
-    ├── KnightPiece.java - Class representation of a Bishop
-    ├── KnightPieceTest.java - Test for Knight piece
-    ├── Location.java - representation of a rank and file combined
-    ├── LocationList.java - collection of locations
-    ├── LocationTest.java - Test for location class
-    ├── MoveValidator.java - class responsible for abstracting move validation
-    ├── MoveValidatorTest.java - test for MoveValidator
-    ├── PawnPiece.java - Class representation of a Pawn
-    ├── PawnPieceTest.java - Test for Pawn piece
-    ├── Piece.java - Abstract class of a piece
-    ├── PieceFactory.java - Abstract class of a Factory responsible for pieces
-    ├── PiecesBuilder.java - responsible for using config to generate piece
-    ├── QueenPiece.java - Class representation of a Queen
-    ├── QueenPieceTest.java - Test for Queen piece
-    ├── RookPiece.java - Class representation of a Rook
-    ├── RookPieceTest.java - Test for Rook piece
-    ├── WhitePieceFactory.java - Class responsible for build white pieces
+    ├── cs576
+    |   ├── AllTests.java - Test Suite
+    |   ├── BishopPiece.java - Class representation of a Bishop
+    |   ├── BishopPieceTest.java - Test for Bishop Piece
+        ├── BlackPieceFactory.java - Class responsible for build black pieces
+        ├── Board.java - Class representation of the board
+        ├── BoardTest.java - Test for Board
+        ├── ChessMoveValidatorUtil.java - Util class with Main
+        ├── Color.java - Enum for piece color
+        ├── ConfigurationLoader.java - Abstrt class of responsible for loading board
+        ├── File.java - Enum for board file
+        ├── JsonConfigurationLoader.java - Concrete JSON impl of ConfigurationLoader
+        ├── KingPiece.java - Class representation of a King
+        ├── KingPieceTest.java - Test for King piece
+        ├── KnightPiece.java - Class representation of a Bishop
+        ├── KnightPieceTest.java - Test for Knight piece
+        ├── Location.java - representation of a rank and file combined
+        ├── LocationList.java - collection of locations
+        ├── LocationTest.java - Test for location class
+        ├── MoveValidator.java - class responsible for abstracting move validation
+        ├── MoveValidatorTest.java - test for MoveValidator
+        ├── PawnPiece.java - Class representation of a Pawn
+        ├── PawnPieceTest.java - Test for Pawn piece
+        ├── Piece.java - Abstract class of a piece
+        ├── PieceFactory.java - Abstract class of a Factory responsible for pieces
+        ├── PiecesBuilder.java - responsible for using config to generate piece
+        ├── QueenPiece.java - Class representation of a Queen
+        ├── QueenPieceTest.java - Test for Queen piece
+        ├── Rank.java
+        ├── RookPiece.java - Class representation of a Rook
+        ├── RookPieceTest.java - Test for Rook piece
+        ├── WhitePieceFactory.java - Class responsible for build white pieces
+        └── package-info.java
     └── package-info.java
 
 --------------------------------------------------------------------------------
@@ -134,7 +144,7 @@ ConfigurationLoader.
 ===========
 * assuming you are in the bin directory of the above layout
 
-java -classpath .:../json-simple-1.1.1.jar ChessMoveValidatorUtil -j ../chess.json
+java -classpath .:../json-simple-1.1.1.jar cs576.ChessMoveValidatorUtil -j ../chess.json
 
 Output:
 8| |K| | |B| | | |
@@ -157,10 +167,10 @@ E1
 =====
 ** assuming you are in the bin directory of the above layout
 *whole suite
-java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore AllTests
+java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore cs576.AllTests
 
 *individual test
-java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore <TestClass>
+java -classpath .:../junit.jar:../org.hamcrest.core_1.3.0.v201303031735.jar org.junit.runner.JUnitCore cs576.<TestClass>
 --------------------------------------------------------------------------------
 #Known issue
 - currently the system only supports JSON file that should be passed with the
