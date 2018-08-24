@@ -11,7 +11,7 @@ public class Location {
 	public String toString(){
 		StringBuilder string = new StringBuilder("");
 		string = string.append(file);
-		string = string.append(String.valueOf(rank.getValue()+1));
+		string = string.append(String.valueOf(rank.ordinal()+1));
 		return string.toString();
 	}
 	
@@ -20,6 +20,14 @@ public class Location {
 		if(location == null)
 			return false;
 		return(this.file == location.file && this.rank == location.rank);
+	}
+	
+	public int rankInt(){
+		return this.rank.ordinal();
+	}
+	
+	public int fileInt(){
+		return this.file.ordinal();
 	}
 	
 	public int hashCode() {

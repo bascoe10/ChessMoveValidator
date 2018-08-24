@@ -9,15 +9,16 @@ public class BishopPiece extends Piece {
 
 	@Override
 	public LocationList validMoves(Board board) {
-		LocationList moves = new LocationList();
-		
+		// Diagonal motion
+
 		// to top right
 		File file = location.file.getNext();
-		int temp_rank = location.rank + 1;
+		Rank temp_rank = location.rank.getNext();
 		Location temp_location = null;
+		
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -26,17 +27,16 @@ public class BishopPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getNext();	
 			}
 			file = file.getNext();
-			temp_rank += 1;
 		}
 		// to bottom left
 		file = location.file.getPrev();
-		temp_rank = location.rank - 1;
+		temp_rank = location.rank.getPrev();
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -45,18 +45,17 @@ public class BishopPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getPrev();
 			}
 			file = file.getPrev();
-			temp_rank -= 1;
 		}
 
 		file = location.file.getNext();
-		temp_rank = location.rank - 1;
+		temp_rank = location.rank.getPrev();
 		// to bottom right
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -65,18 +64,17 @@ public class BishopPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getPrev();
 			}
 			file = file.getNext();
-			temp_rank -= 1;
 		}
 
 		file = location.file.getPrev();
-		temp_rank = location.rank + 1;
+		temp_rank = location.rank.getNext();
 		// to top left
 		while (file != null) {
 			temp_location = new Location(file, temp_rank);
-			if (validRank(temp_rank)){
+			if (temp_rank != null){
 				if(board.isVacantAt(temp_location))
 					moves.add(new Location(file, temp_rank));
 				else if(board.canCapture(this, temp_location)){
@@ -85,10 +83,9 @@ public class BishopPiece extends Piece {
 				} else {
 					break;
 				}
-					
+				temp_rank = temp_rank.getNext();
 			}
 			file = file.getPrev();
-			temp_rank += 1;
 		}
 
 		return moves;

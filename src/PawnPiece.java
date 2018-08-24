@@ -4,13 +4,10 @@ public class PawnPiece extends Piece {
 
 	PawnPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public LocationList validMoves(Board board) {
-		// TODO account handle special move
-		LocationList moves = new LocationList();
 		
 		Location temp_location = null;
 		if(color == Color.WHITE){

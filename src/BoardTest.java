@@ -44,42 +44,42 @@ public class BoardTest {
 	
 	@Test
 	public void testBoardDisplayMethodWithFillBoard() {
-		white.add(new PawnPiece(Color.WHITE, File.A, 2));
-		white.add(new PawnPiece(Color.WHITE, File.B, 2));
-		white.add(new PawnPiece(Color.WHITE, File.C, 2));
-		white.add(new PawnPiece(Color.WHITE, File.D, 2));
-		white.add(new PawnPiece(Color.WHITE, File.E, 2));
-		white.add(new PawnPiece(Color.WHITE, File.F, 2));
-		white.add(new PawnPiece(Color.WHITE, File.G, 2));
-		white.add(new PawnPiece(Color.WHITE, File.H, 2));
+		white.add(new PawnPiece(Color.WHITE, File.A, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.B, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.C, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.D, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.E, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.F, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.G, Rank.TWO));
+		white.add(new PawnPiece(Color.WHITE, File.H, Rank.TWO));
 		
-		white.add(new RookPiece(Color.WHITE, File.A, 1));
-		white.add(new KnightPiece(Color.WHITE, File.B, 1));
-		white.add(new BishopPiece(Color.WHITE, File.C, 1));
-		white.add(new QueenPiece(Color.WHITE, File.D, 1));
-		white.add(new KingPiece(Color.WHITE, File.E, 1));
-		white.add(new BishopPiece(Color.WHITE, File.F, 1));
-		white.add(new KnightPiece(Color.WHITE, File.G, 1));
-		white.add(new RookPiece(Color.WHITE, File.H, 1));
+		white.add(new RookPiece(Color.WHITE, File.A, Rank.ONE));
+		white.add(new KnightPiece(Color.WHITE, File.B, Rank.ONE));
+		white.add(new BishopPiece(Color.WHITE, File.C, Rank.ONE));
+		white.add(new QueenPiece(Color.WHITE, File.D, Rank.ONE));
+		white.add(new KingPiece(Color.WHITE, File.E, Rank.ONE));
+		white.add(new BishopPiece(Color.WHITE, File.F, Rank.ONE));
+		white.add(new KnightPiece(Color.WHITE, File.G, Rank.ONE));
+		white.add(new RookPiece(Color.WHITE, File.H, Rank.ONE));
 		
 		
-		black.add(new PawnPiece(Color.BLACK, File.A, 7));
-		black.add(new PawnPiece(Color.BLACK, File.B, 7));
-		black.add(new PawnPiece(Color.BLACK, File.C, 7));
-		black.add(new PawnPiece(Color.BLACK, File.D, 7));
-		black.add(new PawnPiece(Color.BLACK, File.E, 7));
-		black.add(new PawnPiece(Color.BLACK, File.F, 7));
-		black.add(new PawnPiece(Color.BLACK, File.G, 7));
-		black.add(new PawnPiece(Color.BLACK, File.H, 7));
+		black.add(new PawnPiece(Color.BLACK, File.A, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.B, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.C, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.D, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.E, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.F, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.G, Rank.SEVEN));
+		black.add(new PawnPiece(Color.BLACK, File.H, Rank.SEVEN));
 		
-		black.add(new RookPiece(Color.BLACK, File.A, 8));
-		black.add(new KnightPiece(Color.BLACK, File.B, 8));
-		black.add(new BishopPiece(Color.BLACK, File.C, 8));
-		black.add(new QueenPiece(Color.BLACK, File.D, 8));
-		black.add(new KingPiece(Color.BLACK, File.E, 8));
-		black.add(new BishopPiece(Color.BLACK, File.F, 8));
-		black.add(new KnightPiece(Color.BLACK, File.G, 8));
-		black.add(new RookPiece(Color.BLACK, File.H, 8));
+		black.add(new RookPiece(Color.BLACK, File.A, Rank.EIGHT));
+		black.add(new KnightPiece(Color.BLACK, File.B, Rank.EIGHT));
+		black.add(new BishopPiece(Color.BLACK, File.C, Rank.EIGHT));
+		black.add(new QueenPiece(Color.BLACK, File.D, Rank.EIGHT));
+		black.add(new KingPiece(Color.BLACK, File.E, Rank.EIGHT));
+		black.add(new BishopPiece(Color.BLACK, File.F, Rank.EIGHT));
+		black.add(new KnightPiece(Color.BLACK, File.G, Rank.EIGHT));
+		black.add(new RookPiece(Color.BLACK, File.H, Rank.EIGHT));
 		
 		board = new Board(black, white);
 		

@@ -9,7 +9,6 @@ public class KingPiece extends Piece {
 
 	@Override
 	public LocationList validMoves(Board board) {
-		LocationList moves = new LocationList();
 		File file_minus_one = location.file.getPrev();
 		File file_plus_one = location.file.getNext();
 		

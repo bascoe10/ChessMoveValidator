@@ -15,13 +15,13 @@ public class Board {
 		this.black = black;
 		this.white = white;
 		for(Piece piece: black){
-			board[piece.location.rank-1][piece.location.file.ordinal()] = piece;
+			board[piece.location.rankInt()][piece.location.fileInt()] = piece;
 			if(piece instanceof KingPiece)
 				this.black_king = (KingPiece) piece;
 		}
 		
 		for(Piece piece: white){
-			board[piece.location.rank-1][piece.location.file.ordinal()] = piece;
+			board[piece.location.rankInt()][piece.location.fileInt()] = piece;
 			if(piece instanceof KingPiece)
 				this.white_king = (KingPiece) piece;
 		}
@@ -45,20 +45,20 @@ public class Board {
 	}
 
 	public boolean isVacantAt(Location location) {
-		return board[location.rank-1][location.file.ordinal()] == null;
+		return board[location.rankInt()][location.fileInt()] == null;
 	}
 
 	public boolean canCapture(Piece piece, Location location) {
-		if(location.file == null || location.rank < 1 || location.rank > 8)
+		if(location.file == null || location.rank == null)
 			return false;
 		if(isVacantAt(location))
 			return false;
-		return piece.color != board[location.rank-1][location.file.ordinal()].color;
+		return piece.color != board[location.rankInt()][location.fileInt()].color;
 	}
 	
 	public void movePiece(Piece piece, Location location) {
-		Piece p_location = board[location.rank-1][location.file.ordinal()];
-		board[piece.location.rank-1][piece.location.file.ordinal()] = null;
+		Piece p_location = board[location.rankInt()][location.fileInt()];
+		board[piece.location.rankInt()][piece.location.fileInt()] = null;
 		if(p_location != null){
 			piece_to_allow_for_move = p_location;
 			if(p_location.color == Color.BLACK)
@@ -66,12 +66,12 @@ public class Board {
 			else
 				white.remove(p_location);
 		}
-		board[location.rank-1][location.file.ordinal()] = piece;
+		board[location.rankInt()][location.fileInt()] = piece;
 	}
 
 	public void movePieceBack(Piece piece, Location location) {
-		board[piece.location.rank-1][piece.location.file.ordinal()] = piece;
-		board[location.rank-1][location.file.ordinal()] = piece_to_allow_for_move;
+		board[piece.location.rankInt()][piece.location.fileInt()] = piece;
+		board[location.rankInt()][location.fileInt()] = piece_to_allow_for_move;
 		if(piece_to_allow_for_move == null)
 			return;
 		if(piece_to_allow_for_move.color == Color.BLACK)
@@ -100,12 +100,12 @@ public class Board {
 			moves = p.validMoves(this);
 			for(Location l: moves){
 				if(piece instanceof KingPiece){
-					if(king != null && l.file.ordinal() == location.file.ordinal() && l.rank == location.rank){
+					if(king != null && l.equals(location)){
 						in_check = true;
 						break;
 					}
 				}else{
-					if(king != null && l.file.ordinal() == king.location.file.ordinal() && l.rank == king.location.rank){
+					if(king != null && l.equals(king.location)){
 						in_check = true;
 						break;
 					}

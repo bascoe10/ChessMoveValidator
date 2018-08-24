@@ -129,7 +129,7 @@ public class PawnPieceTest {
 	@Test
 	public void testValidMovesWhenInStartingPositionWhite() {
 		w_piece = (PawnPiece) w_factory.build("Pc2");
-		black.add(w_piece);
+		white.add(w_piece);
 
 		Board board = new Board(black, white);
 
@@ -142,7 +142,7 @@ public class PawnPieceTest {
 	@Test
 	public void testValidMovesWhenNotInStartingPositionWhite() {
 		w_piece = (PawnPiece) w_factory.build("Pc3");
-		black.add(w_piece);
+		white.add(w_piece);
 
 		Board board = new Board(black, white);
 

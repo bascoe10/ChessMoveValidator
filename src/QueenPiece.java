@@ -4,7 +4,6 @@ public class QueenPiece extends Piece {
 
 	QueenPiece(Color color, File file, Rank rank) {
 		super(color, file, rank);
-		moves = new LocationList();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,6 +30,7 @@ public class QueenPiece extends Piece {
 		Rank rank = Rank.ONE;
 		while(rank != null){
 			if(location.rank == rank){
+				rank = rank.getNext();
 				continue;
 			}
 			
@@ -53,6 +53,7 @@ public class QueenPiece extends Piece {
 					break;
 				}
 			}
+			rank = rank.getNext();
 		}
 		
 		
