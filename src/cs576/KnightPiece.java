@@ -29,7 +29,7 @@ public class KnightPiece extends Piece {
 		File file_minus_one = location.file.getPrev();
 		File file_minus_two = null;
 		if(file_minus_one != null)
-			file_minus_two = file_minus_one.getNext();
+			file_minus_two = file_minus_one.getPrev();
 		
 		Location temp_location = null;
 		if(file_minus_one != null){
